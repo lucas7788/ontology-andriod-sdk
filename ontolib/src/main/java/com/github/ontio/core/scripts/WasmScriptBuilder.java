@@ -51,7 +51,9 @@ public class WasmScriptBuilder implements AutoCloseable{
     private static byte[] createWasmCodeParamsScript(String method, List<Object> list) {
         WasmScriptBuilder builder = new WasmScriptBuilder();
         builder.push(method);
-        list.forEach(builder::pushVmParam);
+        for int i=0;i<list.size();i++ {
+            builder::pushVmParam(list.get(i))
+        }
         return builder.packAsArray();
     }
 
